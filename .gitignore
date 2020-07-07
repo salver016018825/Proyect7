@@ -6,3 +6,5 @@
 *.njsproj
 *.sln
 
+#files type exe
+*.exe

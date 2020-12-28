@@ -8,3 +8,4 @@
 
 #files type exe
 *.exe
+/prueba.cpp

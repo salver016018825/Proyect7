@@ -36,8 +36,8 @@ int main()
 
     int sizeName = 0;
     bool isnull = false;
-    int option;
-    int code;
+    int option = 0;
+    int code = 0;
 
     do{
         cout<<"\n1. add employed"<<endl;
@@ -49,19 +49,22 @@ int main()
         cout<<"7. list descent employed"<<endl;
         cout<<"8. exit"<<endl;
         cin>>option;
-
         switch (option)
         {
             case 1:
                 cout<<"add\ncod of employed"<<endl;
                 cin>>code;
                 cout<<"enter name:"<<endl;
-                cin>>nameEmployed[code][50];
-                cout<<"code: "<<code<<"\nname: "<<nameEmployed[code+1][50]<<endl;
-                
+                cin>>nameEmployed[code];
+                cout<<"code: "<<code<<"\nname: "<<nameEmployed[code]<<endl;                
+                option = 0;
             break;
             case 2:
-                cout<<"2. search employed with code"<<endl;
+                for (int i = 0; i < 20; i++)
+                {
+                    cout<<"code: "<<i+1<<" name: "<<nameEmployed[i]<<endl;
+                }
+                
             break;
         }
     }while(option !=8 && option != 8);

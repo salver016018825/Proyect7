@@ -63,8 +63,7 @@ int main()
                     isnull = true;
                     index = i;
                     break;
-                }
-                
+                }                
             }
             if (isnull)
             {
@@ -72,6 +71,7 @@ int main()
                 cin >> nameEmployed[code - 1];
                 cout << "code: " << code << "\nname: " << nameEmployed[code - 1] << endl;
                 code = 0;
+                isnull = false;
             }
             else
             {

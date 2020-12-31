@@ -79,11 +79,30 @@ int main()
                 isnull = false;
             break;
             case 2:
-                for (int i = 0; i < 20; i++)
+                cout<<"enter code: ";
+                cin>>code;
+                while (iInferior <= iSuperior)
                 {
-                    cout<<"code: "<<(i+1)<<" name: "<<nameEmployed[i]<<endl;
-                }
-                
+                    iCentro = (iInferior + iSuperior)/2;
+                    if (cod[iCentro] == code)
+                    {
+                        bandera = 'v';
+                        break;
+                    }else if (cod[iCentro] > code) 
+                    {
+                        iSuperior = iCentro - 1;
+                    }else
+                    {
+                        iInferior = iCentro + 1;
+                    }                                              
+                }            
+                if(bandera == 'V')
+                {
+                    cout<<"code "<<clave<<" name: "<<nameEmployed[iCentro];
+                } else 
+                {
+                    cout<<"name is not exits try again..";
+                }      
             break;
         }
     }while(option !=8 && option != 8);

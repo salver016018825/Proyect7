@@ -58,6 +58,7 @@ int main()
                 cin>>nameEmployed[code];
                 cout<<"code: "<<code<<"\nname: "<<nameEmployed[code]<<endl;                
                 option = 0;
+                isnull = false;
             break;
             case 2:
                 for (int i = 0; i < 20; i++)

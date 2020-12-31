@@ -74,10 +74,7 @@ int main()
                 }else
                 {
                     cout<<"code is has not name employed"<<endl;
-                }
-                
-                               
-                            
+                }           
                 option = 0;
                 isnull = false;
             break;

@@ -63,7 +63,8 @@ int main()
                     isnull = true;
                     index = i;
                     break;
-                }                
+                }
+                
             }
             if (isnull)
             {

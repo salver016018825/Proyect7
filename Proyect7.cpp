@@ -54,15 +54,36 @@ int main()
             case 1:
                 cout<<"add\ncod of employed"<<endl;
                 cin>>code;
-                cout<<"enter name:"<<endl;
-                cin>>nameEmployed[code];
-                cout<<"code: "<<code<<"\nname: "<<nameEmployed[code]<<endl;                
+                int index;
+                for (int i = 0; i < 20; i++)
+                {
+                    sizeName = strlen(nameEmployed[code-1]);
+                    if (sizeName == 0)
+                    {
+                        isnull = true;
+                        index = i;
+                        break;
+                    }                    
+                }
+                if (isnull)
+                {
+                    cout<<"enter name:"<<endl;
+                    cin>>nameEmployed[code-1];
+                    cout<<"code: "<<code<<"\nname: "<<nameEmployed[code-1]<<endl;    
+                    code = 0;
+                }else
+                {
+                    cout<<"code is has not name employed"<<endl;
+                }
+                
+                               
+                            
                 option = 0;
             break;
             case 2:
                 for (int i = 0; i < 20; i++)
                 {
-                    cout<<"code: "<<i+1<<" name: "<<nameEmployed[i]<<endl;
+                    cout<<"code: "<<(i+1)<<" name: "<<nameEmployed[i]<<endl;
                 }
                 
             break;

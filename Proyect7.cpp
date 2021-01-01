@@ -39,6 +39,9 @@ int main()
     int option = 0;
     int code = 0;
 
+    int result = 1,position;
+    bool exist = false;
+
     do{
         cout<<"\n1. add employed"<<endl;
         cout<<"2. search employed with code"<<endl;
@@ -71,12 +74,13 @@ int main()
                     cin>>nameEmployed[code-1];
                     cout<<"code: "<<code<<"\nname: "<<nameEmployed[code-1]<<endl;    
                     code = 0;
+                    isnull = false;
                 }else
                 {
                     cout<<"code is has not name employed"<<endl;
                 }           
                 option = 0;
-                isnull = false;
+                
             break;
             case 2:
                 cout<<"enter code: ";
@@ -96,14 +100,67 @@ int main()
                         iInferior = iCentro + 1;
                     }                                              
                 }            
-                if(bandera == 'V')
+                if(bandera == 'v')
                 {
-                    cout<<"code "<<clave<<" name: "<<nameEmployed[iCentro];
+                    cout<<"code "<<iCentro<<" name: "<<nameEmployed[iCentro];
                 } else 
                 {
                     cout<<"name is not exits try again..";
                 }      
             break;
+            case 3:
+                
+                cout << "enter name: ";
+                char name[30];
+                cin>>name;
+            
+                for (int i = 0; i < 20 && false != true; i++)
+                {
+                    result = strcmp(name, nameEmployed[i]);
+                    if ( result == 0)
+                    {
+                        exist = true;
+                        position = i;
+                    }                
+                }
+                if (exist)
+                {
+                    cout << "coincide con  " << nameEmployed[position] << " code is " << (position + 1);
+                    exist =  false;
+                    
+                }
+                else
+                {
+                    cout << "no exist name" << endl;
+                }
+                break;            
+            break;
+            case 4:
+                cout<<"enter code employed: ";
+                cin>>code;
+                while (iInferior <= iSuperior)
+                {
+                    iCentro = (iInferior + iSuperior)/2;
+                    if (nameEmployed[iCentro][30] == code)
+                    {
+                        bandera = 'v';
+                        break;
+                    }else if (cod[iCentro] > code) 
+                    {
+                        iSuperior = iCentro - 1;
+                    }else
+                    {
+                        iInferior = iCentro + 1;
+                    }                                              
+                }            
+                if(bandera == 'v')
+                {
+                    cout<<"name exits"<<endl;
+                } else 
+                {
+                    cout<<"name is not exits try again..";
+                }      
+            break; 
         }
     }while(option !=8 && option != 8);
 

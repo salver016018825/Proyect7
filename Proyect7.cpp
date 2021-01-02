@@ -26,26 +26,21 @@ using namespace std;
 int main()
 {
     char nameEmployed[20][50] = {"","","","","","","","","","","","","","","","","","","",""};
-    int cod[20] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
-    
+    int cod[20] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};    
     int iInferior = 0, iSuperior = 0, iCentro = 0, clave = 0;
     char bandera = 'F';
-
     iInferior = 0;
     iSuperior = 20;
-
     int sizeName = 0;
     bool isnull = false;
     int option = 0;
     int code = 0;
-
     int result = 1,position;
     bool exist = false;
     char name[30];
     int length = 0;
     int repeatname = 0;
     int equals = 0;
-
     do{
         cout<<"\n1. add employed"<<endl;
         cout<<"2. search employed with code"<<endl;
@@ -200,9 +195,7 @@ int main()
                 for (int i = 0; i < 20; i++)
                 {
                     cout << "code " << i + 1 << " " << nameEmployed[i] << endl;
-                }
-                
-                
+                }              
             break;
             case 7:
                 for (int i = 20; i > 0; i--)
@@ -211,7 +204,6 @@ int main()
                 }
             break;
         }
-        
     }while(option !=8 && option != 8);  
     return 0;
 }

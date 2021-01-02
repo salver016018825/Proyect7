@@ -41,6 +41,8 @@ int main()
 
     int result = 1,position;
     bool exist = false;
+    char name[30];
+    int length = 0;
 
     do{
         cout<<"\n1. add employed"<<endl;
@@ -55,6 +57,7 @@ int main()
         switch (option)
         {
             case 1:
+                //add employed
                 cout<<"add\ncod of employed"<<endl;
                 cin>>code;
                 int index;
@@ -72,7 +75,7 @@ int main()
                 {
                     cout<<"enter name:"<<endl;
                     cin>>nameEmployed[code-1];
-                    cout<<"code: "<<code<<"\nname: "<<nameEmployed[code-1]<<endl;    
+                    cout<<"add succesfull " << endl;    
                     code = 0;
                     isnull = false;
                 }else
@@ -83,6 +86,7 @@ int main()
                 
             break;
             case 2:
+                //Buscar el nombre de un empleado por su número de empleado.
                 cout<<"enter code: ";
                 cin>>code;
                 while (iInferior <= iSuperior)
@@ -91,6 +95,7 @@ int main()
                     if (cod[iCentro] == code)
                     {
                         bandera = 'v';
+                        length = strlen(nameEmployed[iCentro]);
                         break;
                     }else if (cod[iCentro] > code) 
                     {
@@ -100,20 +105,19 @@ int main()
                         iInferior = iCentro + 1;
                     }                                              
                 }            
-                if(bandera == 'v')
+                if(bandera == 'v' && length != 0)
                 {
-                    cout<<"code "<<iCentro<<" name: "<<nameEmployed[iCentro];
+                    cout<<"code "<<iCentro+1<<"\nname: "<<nameEmployed[iCentro] << endl;
+                    length = 0;
                 } else 
                 {
-                    cout<<"name is not exits try again..";
+                    cout<<"code is not exits try again.." << endl;
                 }      
             break;
-            case 3:
-                
+            case 3:            
+                //Buscar el número de empleado por su nombre.    
                 cout << "enter name: ";
-                char name[30];
-                cin>>name;
-            
+                cin>>name;            
                 for (int i = 0; i < 20 && false != true; i++)
                 {
                     result = strcmp(name, nameEmployed[i]);
@@ -125,7 +129,7 @@ int main()
                 }
                 if (exist)
                 {
-                    cout << "coincide con  " << nameEmployed[position] << " code is " << (position + 1);
+                    cout << "code: " << position+1 << " \nname:  " << nameEmployed[position] << endl;
                     exist =  false;
                     
                 }
@@ -136,33 +140,34 @@ int main()
                 break;            
             break;
             case 4:
-                cout<<"enter code employed: ";
-                cin>>code;
-                while (iInferior <= iSuperior)
+                //Saber si un usuario no existe.
+                cout<<"enter username " << endl;
+                cin>>name;
+                for (int i = 0; i < 20 && false != true; i++)
                 {
-                    iCentro = (iInferior + iSuperior)/2;
-                    if (nameEmployed[iCentro][30] == code)
+                    result = strcmp(name, nameEmployed[i]);
+                    if ( result == 0)
                     {
-                        bandera = 'v';
-                        break;
-                    }else if (cod[iCentro] > code) 
-                    {
-                        iSuperior = iCentro - 1;
-                    }else
-                    {
-                        iInferior = iCentro + 1;
-                    }                                              
-                }            
-                if(bandera == 'v')
+                        exist = true;
+                        position = i;
+                    }                
+                }
+                if (exist)
                 {
-                    cout<<"name exits"<<endl;
-                } else 
+                    cout << "exist name"<< endl;
+                    exist =  false;
+                    
+                }
+                else
                 {
-                    cout<<"name is not exits try again..";
-                }      
+                    cout << "no exist user" << endl;
+                }
             break; 
         }
+        
     }while(option !=8 && option != 8);
+    
+    
 
     return 0;
 }

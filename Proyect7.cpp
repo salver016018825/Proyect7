@@ -171,7 +171,25 @@ int main()
                 {
                     cout << "no exist user" << endl;
                 }
+            break;
+            case 5: 
+                //Saber si hay nombres similares entre sus empleados.
             break; 
+            case 6:
+                //Mostrar empleados de forma ascendente por número de empleado.
+                for (int i = 0; i < 20; i++)
+                {
+                    cout << "code " << i + 1 << " " << nameEmployed[i] << endl;
+                }
+                
+                
+            break;
+            case 7:
+                for (int i = 20; i > 0; i--)
+                {
+                    cout << "code " << i << " " << nameEmployed[i] << endl;
+                }
+            break;
         }
         
     }while(option !=8 && option != 8);

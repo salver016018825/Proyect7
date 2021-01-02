@@ -87,32 +87,42 @@ int main()
             break;
             case 2:
                 //Buscar el nombre de un empleado por su número de empleado.
-                cout<<"enter code: ";
-                cin>>code;
-                while (iInferior <= iSuperior)
+            cout << "enter code: ";
+            cin >> code;
+            while (iInferior <= iSuperior)
+            {
+                iCentro = (iInferior + iSuperior) / 2;
+                if (cod[iCentro] == code)
                 {
-                    iCentro = (iInferior + iSuperior)/2;
-                    if (cod[iCentro] == code)
-                    {
-                        bandera = 'v';
-                        length = strlen(nameEmployed[iCentro]);
-                        break;
-                    }else if (cod[iCentro] > code) 
-                    {
-                        iSuperior = iCentro - 1;
-                    }else
-                    {
-                        iInferior = iCentro + 1;
-                    }                                              
-                }            
-                if(bandera == 'v' && length != 0)
+                    bandera = 'v';
+                    length = strlen(nameEmployed[iCentro]);
+                    break;
+                }
+                else if (cod[iCentro] > code)
                 {
-                    cout<<"code "<<iCentro+1<<"\nname: "<<nameEmployed[iCentro] << endl;
-                    length = 0;
-                } else 
+                    iSuperior = iCentro - 1;
+                }
+                else
                 {
-                    cout<<"code is not exits try again.." << endl;
-                }      
+                    iInferior = iCentro + 1;
+                }
+            }
+            if (bandera == 'v')
+            {
+                if (length != 0)
+                {
+                    cout << "code " << iCentro + 1 << "\nname: " << nameEmployed[iCentro] << endl;
+                    length = 0;                    
+                }
+                else
+                {
+                    cout << "code: " << code << " ______ " << endl;                    
+                }
+            }
+            else
+            {
+                cout << "code is not exits try again.." << endl;
+            }      
             break;
             case 3:            
                 //Buscar el número de empleado por su nombre.    
@@ -130,8 +140,7 @@ int main()
                 if (exist)
                 {
                     cout << "code: " << position+1 << " \nname:  " << nameEmployed[position] << endl;
-                    exist =  false;
-                    
+                    exist =  false;                    
                 }
                 else
                 {

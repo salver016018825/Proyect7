@@ -43,6 +43,8 @@ int main()
     bool exist = false;
     char name[30];
     int length = 0;
+    int repeatname = 0;
+    int equals = 0;
 
     do{
         cout<<"\n1. add employed"<<endl;
@@ -174,6 +176,24 @@ int main()
             break;
             case 5: 
                 //Saber si hay nombres similares entre sus empleados.
+                cout << "enter name" << endl;
+                cin >> name;
+                for (int i = 0; i < 20; i++)
+                {   
+                    equals = strcmp(name,nameEmployed[i]);
+                    if (equals == 0)
+                    {
+                        repeatname++;
+                        exist = true;
+                    }                    
+                }
+                if (true)
+                {
+                    cout << "coincidences: " << repeatname;
+                }else
+                {
+                    cout << "not matches" << endl;
+                }
             break; 
             case 6:
                 //Mostrar empleados de forma ascendente por número de empleado.
@@ -192,9 +212,6 @@ int main()
             break;
         }
         
-    }while(option !=8 && option != 8);
-    
-    
-
+    }while(option !=8 && option != 8);  
     return 0;
 }
